@@ -35,3 +35,16 @@ class Sale:
 
     def __str__(self):
         return f"Sale(Employee: {self.employee.full_name}, Book: {self.book.title}, Date: {self.sale_date}, Sale Price: {self.real_sale_price})"
+
+class BookStoreFactory:
+    @staticmethod
+    def create_employee(full_name: str, position: str, phone: str, email: str) -> Employee:
+        return Employee(full_name, position, phone, email)
+
+    @staticmethod
+    def create_book(title: str, year: int, author: str, genre: str, cost_price: float, potential_sale_price: float) -> Book:
+        return Book(title, year, author, genre, cost_price, potential_sale_price)
+
+    @staticmethod
+    def create_sale(employee: Employee, book: Book, sale_date: datetime, real_sale_price: float) -> Sale:
+        return Sale(employee, book, sale_date, real_sale_price)
