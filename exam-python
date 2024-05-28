@@ -1,1 +1,15 @@
 #Variant 3
+
+from datetime import datetime
+from typing import List, Dict, Any
+import json
+
+class Employee:
+    def __init__(self, full_name: str, position: str, phone: str, email: str):
+        self.full_name = full_name
+        self.position = position
+        self.phone = phone
+        self.email = email
+
+    def __str__(self):
+        return f"Employee(Name: {self.full_name}, Position: {self.position}, Phone: {self.phone}, Email: {self.email})"
