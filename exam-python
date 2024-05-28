@@ -26,3 +26,12 @@ class Book:
     def __str__(self):
         return f"Book(Title: {self.title}, Year: {self.year}, Author: {self.author}, Genre: {self.genre}, Cost: {self.cost_price}, Sale Price: {self.potential_sale_price})"
 
+class Sale:
+    def __init__(self, employee: Employee, book: Book, sale_date: datetime, real_sale_price: float):
+        self.employee = employee
+        self.book = book
+        self.sale_date = sale_date
+        self.real_sale_price = real_sale_price
+
+    def __str__(self):
+        return f"Sale(Employee: {self.employee.full_name}, Book: {self.book.title}, Date: {self.sale_date}, Sale Price: {self.real_sale_price})"
