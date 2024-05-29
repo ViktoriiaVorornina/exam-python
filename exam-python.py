@@ -307,6 +307,30 @@ class Menu:
 
 if __name__ == "__main__":
     bookstore = BookStore()
+
+    employees = [
+        BookStoreFactory.create_employee("Іван Іванов", "Продавець", "123456789", "ivanov@example.com"),
+        BookStoreFactory.create_employee("Марія Петренко", "Менеджер", "987654321", "petrenko@example.com")
+    ]
+
+    books = [
+        BookStoreFactory.create_book("Кобзар", 1840, "Тарас Шевченко", "Поезія", 100.0, 150.0),
+        BookStoreFactory.create_book("Кайдашева сім'я", 1966, "Панас Мирний", "Роман", 200.0, 300.0)
+    ]
+
+    sales = [
+        BookStoreFactory.create_sale(employees[0], books[0], datetime(2024, 5, 1, 14, 30), 140.0),
+        BookStoreFactory.create_sale(employees[1], books[1], datetime(2024, 5, 2, 16, 0), 290.0)
+    ]
+
+    for employee in employees:
+        bookstore.add_employee(employee)
+
+    for book in books:
+        bookstore.add_book(book)
+
+    for sale in sales:
+        bookstore.add_sale(sale)
+
     menu = Menu(bookstore)
     menu.run()
-
