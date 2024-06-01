@@ -1,10 +1,4 @@
 #Variant 3
-
-from datetime import datetime
-from typing import List, Dict, Any
-import json
-from abc import ABC, abstractmethod
-
 from datetime import datetime
 from typing import List, Dict, Any
 import json
