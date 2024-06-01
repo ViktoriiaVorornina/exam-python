@@ -29,6 +29,15 @@ class TestBookStore(unittest.TestCase):
         self.bookstore.remove_employee(self.employee1)
         self.assertNotIn(self.employee1, self.bookstore.employees)
 
+    def test_add_book(self):
+        self.bookstore.add_book(self.book2)
+        self.assertIn(self.book2, self.bookstore.books)
+
+    def test_remove_book(self):
+        self.bookstore.add_book(self.book2)
+        self.bookstore.remove_book(self.book2)
+        self.assertNotIn(self.book2, self.bookstore.books)
+
 if __name__ == '__main__':
     unittest.main()
 
