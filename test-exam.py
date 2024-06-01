@@ -20,6 +20,14 @@ class TestBookStore(unittest.TestCase):
         self.sale4 = BookStoreFactory.create_sale(self.employee1, self.book4, datetime.now(), 260.0)
         self.sale5 = BookStoreFactory.create_sale(self.employee1, self.book5, datetime.now(), 340.0)
 
+    def test_add_employee(self):
+        self.bookstore.add_employee(self.employee1)
+        self.assertIn(self.employee1, self.bookstore.employees)
+
+    def test_remove_employee(self):
+        self.bookstore.add_employee(self.employee1)
+        self.bookstore.remove_employee(self.employee1)
+        self.assertNotIn(self.employee1, self.bookstore.employees)
 
 if __name__ == '__main__':
     unittest.main()
