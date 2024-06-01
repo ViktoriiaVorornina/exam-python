@@ -47,6 +47,27 @@ class TestBookStore(unittest.TestCase):
         self.bookstore.remove_sale(self.sale1)
         self.assertNotIn(self.sale1, self.bookstore.sales)
 
+    def test_generate_employee_report(self):
+        self.bookstore.add_employee(self.employee1)
+        report = self.bookstore.generate_report("employees", {})
+        self.assertIn("Вікторія Вороніна", report)
+
+    def test_generate_book_report(self):
+        self.bookstore.add_book(self.book3)
+        report = self.bookstore.generate_report("books", {})
+        self.assertIn("Тіні забутих предків", report)
+
+    def test_generate_sale_report(self):
+        self.bookstore.add_sale(self.sale3)
+        report = self.bookstore.generate_report("sales", {})
+        self.assertIn("Тіні забутих предків", report)
+
+    def test_generate_sales_by_date_report(self):
+        self.bookstore.add_sale(self.sale3)
+        report = self.bookstore.generate_report("sales_by_date", {"date": datetime.now().date()})
+        self.assertIn("Тіні забутих предків", report)
+
+
 if __name__ == '__main__':
     unittest.main()
 
